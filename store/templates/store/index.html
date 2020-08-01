@@ -1,22 +1,23 @@
 {% extends "store/layout.html" %}
 
 {% block content %}
-  <div class="row">
+  <div class="row" style="padding-top: 20px;">
     {% for product in products %}
     <div class="col s12 m4">
-      <div class="card">
+      <div class="card" style="padding-bottom: 20px;">
         <div class="card-image waves-effect waves-block waves-light" style="height: 200px; width: 300px;">
           <img class="activator" src="">
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4" style="font-size: 19px;">{{ product.name }} <span style="float: right">${{ product.price }}<i class="material-icons right">more_vert</i></span> </span>
-          <div class="card-action">
-            <button class="btn waves-effect waves-light" type="submit" name="action" style="align-items: right;">Add to cart
+          <span class="card-title activator grey-text text-darken-4" style="font-size: 19px;">{{ product.name }} <span style="float: right"><i class="material-icons right">more_vert</i></span> </span>
+          <div class="card-action" style="padding-right: 0px;padding-left: 0px;padding-bottom: 0px;border-bottom-width: -20;margin-bottom: -20;">
+            <span style="font-size: 18px;">${{ product.price | floatformat:2 }}</span>
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="float: right;">Add to cart
               <i class="material-icons right">add_shopping_cart</i>
             </button>
           </div>
         </div>
-        <div class="card-reveal" style="margin: auto;">
+        <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
           <p>This {{ product.name }} which costs {{ product.price }} a piece is a good purchase if you love good {{ product.name }}.</p>
         </div>
