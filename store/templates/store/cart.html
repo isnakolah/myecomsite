@@ -1,0 +1,46 @@
+{% extends "store/layout.html" %}
+{% block content %}
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Card Title</span>
+        <p>I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively.</p>
+      </div>
+      <div class="card-action">
+        <a href="#">This is a link</a>
+        <a href="#">This is a link</a>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="responsive-table">
+  <thead>
+    <tr>
+        <th>Image</th>
+        <th>Item Name</th>
+        <th>Item Price</th>
+        <th>Quantity</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td>{{ product.image }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <!-- <div style="float: left; width: 20px; height: 20px; padding-right: 10px;">
+          <i class="material-icons blue-text text-lighten-1" style="font-size: 40px; cursor: pointer;">arrow_drop_up</i>
+          <i class="material-icons blue-text text-lighten-1" style="font-size: 40px; cursor: pointer;">arrow_drop_down</i>
+        </div> -->
+        {{ product.price }} 
+        <span style="float: right;"><i class="material-icons red-text text-lighten-1" style="font-size: larger; cursor: pointer;">delete</i></span>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

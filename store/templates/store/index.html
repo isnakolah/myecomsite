@@ -1,0 +1,27 @@
+{% extends "store/layout.html" %}
+
+{% block content %}
+  <div class="row">
+    {% for product in products %}
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light" style="height: 200px; width: 300px;">
+          <img class="activator" src="">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4" style="font-size: 19px;">{{ product.name }} <span style="float: right">${{ product.price }}<i class="material-icons right">more_vert</i></span> </span>
+          <div class="card-action">
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="align-items: right;">Add to cart
+              <i class="material-icons right">add_shopping_cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="card-reveal" style="margin: auto;">
+          <span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
+          <p>This {{ product.name }} which costs {{ product.price }} a piece is a good purchase if you love good {{ product.name }}.</p>
+        </div>
+      </div>  
+    </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
