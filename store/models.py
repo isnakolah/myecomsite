@@ -18,9 +18,19 @@ class Product(models.Model):
 
     def __str__(self):
          return self.name
-    
+
+    @property
     def image_url(self):
-        pass
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        else: 
+            return 'There is no image for this'
+    
+    # def image_url(self):
+    #     try:
+    #         self.image.url
+    #     except:
+    #         return 'static/images/placeholder.pngstatic/images/placeholder.pngstatic/images/placeholder.png'
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)

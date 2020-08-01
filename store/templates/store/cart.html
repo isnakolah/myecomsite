@@ -1,16 +1,31 @@
 {% extends "store/layout.html" %}
 {% block content %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.btn').forEach( button => {
+      button.onlick = () => {
+        window.location.href = `store/${button.dataset.location}`;
+        console.log(button.dataset.location)
+      }
+    });
+  });
+</script>
+
 <div class="row">
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
+  <div class="col s12 m12" style="padding: 0px;">
+    <div class="card cyan darken-2">
+      <div class="card-action">
+        <button class="btn waves-effect waves-light" type="submit" name="action" style="padding-left: 0;" data-location="index">
+          <i class="material-icons left back-forward">arrow_left</i>Continue Shopping
+        </button>
+        <button class="btn waves-effect waves-light float-right" type="submit" name="action" style="padding-right: 0;" data-location="checkout">Checkout
+          <i class="material-icons right back-forward">arrow_right</i>
+        </button>
+      </div>
       <div class="card-content white-text">
         <span class="card-title">Card Title</span>
         <p>I am a very simple card. I am good at containing small bits of information.
         I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
       </div>
     </div>
   </div>
@@ -28,16 +43,17 @@
   <tbody>
     {% for product in products %}
     <tr>
-      <td>{{ product.image }}</td>
+      <td><img class="activator" src="{{ product.image_url }}" style="height: 25px; width: 40px;"></td>
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
       <td>
+        <!-- Arrows to move up and down -->
         <!-- <div style="float: left; width: 20px; height: 20px; padding-right: 10px;">
           <i class="material-icons blue-text text-lighten-1" style="font-size: 40px; cursor: pointer;">arrow_drop_up</i>
           <i class="material-icons blue-text text-lighten-1" style="font-size: 40px; cursor: pointer;">arrow_drop_down</i>
         </div> -->
         {{ product.price }} 
-        <span style="float: right;"><i class="material-icons red-text text-lighten-1" style="font-size: larger; cursor: pointer;">delete</i></span>
+        <span class="float-right"><i class="material-icons red-text lighten-1" id="delete">delete</i></span>
       </td>
     </tr>
     {% endfor %}

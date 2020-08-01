@@ -1,0 +1,22 @@
+.card-content > div.card-action {
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  border-bottom-width: -20;
+  margin-bottom: -20;
+}
+
+.float-right {
+  float: right;
+}
+
+
+#delete {
+  font-size: larger;
+  cursor: pointer;
+}
+
+.back-forward {
+  font-size: 3rem !important;
+  margin: 0px !important;
+}
