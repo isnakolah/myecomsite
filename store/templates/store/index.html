@@ -12,12 +12,12 @@
           <span class="card-title activator grey-text text-darken-4" style="font-size: 19px;">{{ product.name }} <span style="float: right"><i class="material-icons right">more_vert</i></span> </span>
           <div class="card-action" >
             <span style="font-size: 18px;">${{ product.price | floatformat:2 }}</span>
-            <button class="btn waves-effect waves-light float-right" type="submit" name="action">Add to cart
+          <button class="btn waves-effect waves-light float-right" type="submit" name="action">Add to cart
               <i class="material-icons right">add_shopping_cart</i>
             </button>
           </div>
         </div>
-        <div class="card-reveal">
+        <div class="card-reveal cyan lighten-5">
           <span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
           <p>This {{ product.name }} which costs {{ product.price }} a piece is a good purchase if you love good {{ product.name }}.</p>
         </div>
